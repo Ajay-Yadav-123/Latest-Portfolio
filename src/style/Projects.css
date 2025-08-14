@@ -1,0 +1,9 @@
+.projects{
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding-top: 100px;
+}
+.css-12x2cp1-JoyTypography-root{
+    color: var(--small-text-color) !important;
+}

@@ -1,0 +1,221 @@
+.contact-form p{
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: var(--small-text-color);
+}
+
+.contact-form h4{
+    color: var(--text-color);
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+
+.contact-section {
+    background: var(--bg-color);
+    color: var(--text-color);
+    padding: 48px 0;
+}
+
+.contact-title {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+}
+
+.contact-subtitle {
+    text-align: center;
+    color: var(--small-text-color);
+    margin-bottom: 40px;
+    font-size: 1.12rem;
+}
+
+/* Layout */
+.contact-main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 42px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: none;
+    padding-top: 40px;
+}
+
+.contact-form,
+.contact-info-card {
+    background: var(--secondary-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 34px 30px 26px 30px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* Form */
+.contact-form label {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 4px;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: transparent;
+    border: 1.4px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+    color: var(--text-color);
+    padding: 10px 12px;
+    font-size: 1rem;
+    transition: border 0.18s;
+    margin-top: 3px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border: 1.7px solid var(--text-color);
+}
+
+.contact-submit {
+    background: linear-gradient(135deg, var(--text-color), var(--accent-color));
+    color: var(--bg-color);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    padding: 12px 0;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: 0.3s ease-in-out;
+
+}
+
+.contact-submit:hover {
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border);
+}
+
+/* Info Card */
+.contact-info-card {
+    min-width: 0;
+}
+
+.contact-info-card h4 {
+    color: var(--text-color);
+    margin-bottom: 6px;
+    font-size: 18px;
+    font-weight: 700;
+}
+.contact-info-card p{
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    background: transparent;
+    padding: 0;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 16px 20px;
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.contact-location span{
+    font-size: 16px;
+}
+
+.info-row:hover{
+    background-color: var(--hover);
+}
+
+.info-icon {
+    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--secondary-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background-color: var(--accent-hover, rgba(255, 255, 255, 0.05));
+    cursor: pointer;
+}
+
+.info-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 16px;
+    margin-right: 2px;
+    min-width: 70px;
+}
+
+.info-value {
+    color: var(--small-text-color);
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    word-break: break-all;
+}
+
+.contact-location {
+    padding-top: 25px;
+    border-top: 1px solid var(--accent-hover);
+    color: var(--small-text-color);
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+    .contact-main-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 0 8px;
+    }
+
+    .contact-form,
+    .contact-info-card {
+        padding: 26px 12px 18px 12px;
+        margin: 10px 10px 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .contact-title {
+        font-size: 1.45rem;
+    }
+
+    .contact-main-grid {
+        padding: 0 0px;
+    }
+}

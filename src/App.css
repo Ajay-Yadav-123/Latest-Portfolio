@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+  color: #333333;            /* Default body text color */
+  background-color: #000000 !important; /* Light gray background */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #1a237e;           /* Dark Blue */
+}
+
+h2 {
+  color: #303f9f;           /* Indigo */
+}
+
+h3 {
+  color: #3949ab;           /* Medium Indigo */
+}
+
+h4 {
+  color: #5c6bc0;           /* Lighter Indigo */
+}
+
+h5 {
+  color: #7986cb;           /* Light Blue */
+}
+
+h6 {
+  color: #9fa8da;           /* Very Light Blue */
+}
+
+p {
+  color: #455a64;           /* Dark Slate Gray */
+  line-height: 1.6;
+}

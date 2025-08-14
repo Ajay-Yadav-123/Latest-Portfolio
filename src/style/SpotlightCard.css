@@ -1,0 +1,103 @@
+.card-spotlight {
+  position: relative;
+  border-radius: 1.5rem;
+  border: 1px solid #222;
+  background-color: var(--bg-color);
+  padding: 2rem;
+  overflow: hidden;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --spotlight-color: rgba(255, 255, 255, 0.05);
+}
+
+.card-spotlight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), var(--spotlight-color), transparent 90%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.card-spotlight:hover::before,
+.card-spotlight:focus-within::before {
+  opacity: 0.6;
+}
+
+.spotlight-cards-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* 2 columns */
+  gap: 30px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 40px auto;
+  padding: 36px 48px;
+  box-sizing: border-box;
+}
+
+.custom-spotlight-card {
+  background: var(--secondary-bg);
+  border-radius: 18px;
+  padding: 40px;
+  color: var(--text-color);
+  transition:
+    box-shadow 0.2s cubic-bezier(.5,1.8,.54,1.1),
+    background 0.23s,
+    transform 0.22s;
+  position: relative;
+  overflow: hidden;
+  --spotlight-color: var(--spotlight);
+  border: 1px solid var(--border);
+}
+
+.custom-spotlight-card h3 {
+  font-size: 20px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: var(--text-color);
+  margin-bottom: 11px;
+  margin-top: 10px;
+}
+
+.custom-spotlight-card p {
+  font-size: 1rem;
+  color: var(--small-text-color);
+  opacity: 0.88;
+  line-height: 1.6;
+}
+
+.custom-spotlight-card:hover,
+.custom-spotlight-card:focus-within {
+  /* transform: translateY(-7px) scale(1.035);
+  box-shadow:
+    0 10px 35px 0 rgba(255, 230, 0, 0.19),
+    0 5px 25px 0 rgba(0, 0, 0, 0.2); */
+  background: var(--secondary-bg);
+  z-index: 2;
+}
+
+@media (max-width: 700px) {
+  .spotlight-cards-section {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 18px 4px 0 4px;
+  }
+  .custom-spotlight-card {
+    padding: 21px 14px 16px 14px;
+    margin: 0 10px;
+  }
+
+  .css-u2q6mr{
+    grid-template-columns: repeat(1, 1fr) !important;
+    padding: 10px !important;
+  }
+  .custom-spotlight-card h3{
+    font-size: 18px;
+  }
+}
+

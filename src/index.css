@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, h5, h6, p, button {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  color: var(--text-color);
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root {
+  --bg-color: #00040f;
+  --text-color: #fff;         /* White text for dark theme */
+  --accent-color: #e6a845;
+  --secondary-bg: #000e3894;
+}
+
+body.light-theme {
+  --bg-color: #fafafa;
+  --text-color: #000;         /* Pure black for light mode text */
+  --accent-color: #000000;
+  --secondary-bg: #e9edfa94;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
