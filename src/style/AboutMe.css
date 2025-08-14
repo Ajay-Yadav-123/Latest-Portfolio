@@ -74,7 +74,6 @@
 .spotlight-icon-circle{
       width: 60px;
     height: 60px;
-    border: 2px solid var(--secondary-bg);
     border-radius: 50%;
     display: flex
 ;

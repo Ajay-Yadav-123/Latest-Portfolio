@@ -243,7 +243,6 @@ p{
 .social-icon {
   width: 50px;
   height: 50px;
-  border: 2px solid var(--secondary-bg);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -319,8 +318,17 @@ p{
 
 /* --- Responsive Design for Tablets and up --- */
 @media (max-width: 900px) {
+  .theme-toggle .theme-btn {
+  width: 32px;
+  height: 32px;
+}
 
-
+  .nav-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
   .nav-container {
     padding: 0.5rem 0.5rem;
   }
