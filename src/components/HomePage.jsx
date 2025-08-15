@@ -25,17 +25,30 @@ const HomePage = () => {
     return 'dark';
   };
   const [theme, setTheme] = useState(getInitialTheme());
+
   useEffect(() => {
     document.body.classList.toggle('light-theme', theme === 'light');
     localStorage.setItem('theme', theme);
+
     // Prevent scroll when nav open
     if (navOpen) {
       document.body.classList.add('nav-open');
     } else {
       document.body.classList.remove('nav-open');
     }
-    // eslint-disable-next-line
   }, [theme, navOpen]);
+
+  // Listen for "T" key press globally to toggle theme
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 't' || e.key === 'T') {
+        setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
   const handleNavClick = () => setNavOpen(false);
 
@@ -46,8 +59,8 @@ const HomePage = () => {
         whileInView={{ opacity: 1, y: 0 }}
         // viewport={{ once: true, amount: 0.7 }}
         transition={{ duration: 0.6 }}
-
-        className="navbar">
+        className="navbar"
+      >
         <div className="nav-container">
           <img src={profileImage} alt="Profile" className="nav-logo" id='home' />
           {/* Hamburger Button */}
@@ -81,43 +94,43 @@ const HomePage = () => {
             <motion.img
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.8 }}
-              initial={{ opacity: 0, y: 50 }}          // Starting state: invisible and shifted down by 50px
-              whileInView={{ opacity: 1, y: 0 }}      // Animate to visible and original position when in viewport
-              viewport={{ once: true, amount: 0.6 }}  // Animate once when 60% of element is visible
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.6 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
               src={profileImage} alt="Profile" className="profile-image" />
           </div>
           <div className="hero-text">
             <motion.h2
-
-              initial={{ opacity: 0, y: 50 }}          // Starting state: invisible and shifted down by 50px
-              whileInView={{ opacity: 1, y: 0 }}      // Animate to visible and original position when in viewport
-              viewport={{ once: true, amount: 0.6 }}  // Animate once when 60% of element is visible
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.6 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-
-              className="greeting">Hi! I'm Ajay</motion.h2>
+              className="greeting"
+            >
+              Hi! I'm Ajay
+            </motion.h2>
 
             <TrueFocus />
 
             <motion.p
-
-              initial={{ opacity: 0, y: 50 }}          // Starting state: invisible and shifted down by 50px
-              whileInView={{ opacity: 1, y: 0 }}      // Animate to visible and original position when in viewport
-              viewport={{ once: true, amount: 0.6 }}  // Animate once when 60% of element is visible
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.6 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-
-              className="description">
+              className="description"
+            >
               Based in Mumbai, Maharashtra, India. I build interactive and responsive websites that work seamlessly across all platforms and devices.
             </motion.p>
           </div>
+
           <motion.div
-
-            initial={{ opacity: 0, y: 50 }}          // Starting state: invisible and shifted down by 50px
-            whileInView={{ opacity: 1, y: 0 }}      // Animate to visible and original position when in viewport
-            viewport={{ once: true, amount: 0.6 }}  // Animate once when 60% of element is visible
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-
-            className="social-icons">
+            className="social-icons"
+          >
             <a href="https://www.linkedin.com/in/ajay-yadav-b7902a24b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
               <FaLinkedin size={22} />
             </a>
@@ -131,14 +144,14 @@ const HomePage = () => {
               <FaWhatsapp size={22} />
             </a>
           </motion.div>
+
           <motion.div
-
-            initial={{ opacity: 0, y: 50 }}          // Starting state: invisible and shifted down by 50px
-            whileInView={{ opacity: 1, y: 0 }}      // Animate to visible and original position when in viewport
-            viewport={{ once: true, amount: 0.6 }}  // Animate once when 60% of element is visible
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-
-            className="action-buttons">
+            className="action-buttons"
+          >
             <a href='https://wa.me/917378927857' className="btn btn-primary">
               <MdEmail size={20} style={{ marginRight: "0.5em" }} />
               Contact Me

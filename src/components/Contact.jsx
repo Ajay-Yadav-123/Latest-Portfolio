@@ -12,14 +12,14 @@ const contactInfo = [
   {
     icon: <FaLinkedin />,
     label: 'LinkedIn',
-    value: 'linkedin.com/in/Ajay-Yadav/',
-    link: 'hhttps://www.linkedin.com/in/ajay-yadav-b7902a24b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+    value: 'linkedin.com/in/ajay-yadav-aj/',
+    link: 'https://www.linkedin.com/in/ajay-yadav-aj',
   },
   {
     icon: <FaEnvelope />,
     label: 'Email',
-    value: 'ajmeansajay879.com',
-    link: 'ajmeansajay879.com',
+    value: 'ajmeansajay879@gmail.com',
+    link: 'mailto:ajmeansajay879@gmail.com',
   },
   {
     icon: <FaPhone />,

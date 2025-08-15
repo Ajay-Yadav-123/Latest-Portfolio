@@ -47,7 +47,7 @@
 .contact-info-card {
     background: var(--secondary-bg);
     border: 1px solid var(--border);
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 34px 30px 26px 30px;
     display: flex;
     flex-direction: column;
@@ -73,7 +73,7 @@
 .contact-form textarea {
     background: transparent;
     border: 1.4px solid var(--border);
-    border-radius: 8px;
+    border-radius: 5px;
     outline: none;
     color: var(--text-color);
     padding: 10px 12px;
@@ -92,7 +92,7 @@
 .contact-submit {
     background: linear-gradient(135deg, var(--text-color), var(--accent-color));
     color: var(--bg-color);
-    border-radius: 8px;
+    border-radius: 5px;
     font-size: 1.1rem;
     padding: 12px 0;
     font-weight: 700;
@@ -136,7 +136,7 @@
     gap: 13px;
     background: transparent;
     padding: 0;
-    border-radius: 8px;
+    border-radius: 6px;
     border: 1px solid var(--border);
     padding: 16px 20px;
     transition: 0.1s ease-in-out;
