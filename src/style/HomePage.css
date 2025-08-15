@@ -30,13 +30,10 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background 0.3s, color 0.3s;
-  overflow-x: hidden;
   width: 100vw;
 }
 
-body.nav-open {
-  overflow: hidden;
-}
+
 
 h1,
 h2,
@@ -66,7 +63,6 @@ p{
 
 /* Navigation Styles */
 .navbar {
-  padding: 1rem 0;
   position: fixed;
   top: 0;
   width: 100%;
@@ -75,14 +71,14 @@ p{
 
 .nav-container {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1px solid var(--border);
   border-radius: 20px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
   background-color: var(--secondary-bg);
 }
 
@@ -331,6 +327,9 @@ p{
 }
   .nav-container {
     padding: 0.5rem 0.5rem;
+    margin: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 
   .hero-content {
@@ -382,7 +381,8 @@ p{
 
   .navbar {
     z-index: 1202;
-    padding: 0;
+    margin: 0 !important;
+
   }
 }
 
