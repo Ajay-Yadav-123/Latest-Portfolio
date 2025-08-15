@@ -28,11 +28,9 @@ const AboutMe = () => {
           </div>
           <div className="about-text">
             <p>
-              I’m a passionate Flutter developer with 4 years of experience building high-performance, cross-platform mobile applications. I specialize in creating smooth, scalable, and user-friendly apps, from concept to deployment. Over the past year, I’ve also expanded into web development using Next.js, gaining solid experience in building responsive, modern frontend interfaces.
-            </p>
+              I’m a dedicated web developer with a strong foundation in building interactive, responsive websites using the latest technologies. Over the past several years, I’ve honed my skills in HTML, CSS, JavaScript, React.js, and WordPress, delivering user-friendly web experiences for clients and personal projects alike. My experience spans crafting custom portfolio sites, business websites, and integrating APIs to add dynamic features and value.            </p>
             <p>
-              I thrive in fast-paced environments, whether working solo or collaborating with teams, and I’m driven by clean code, great UX, and continuous learning. Whether it’s launching a new product, optimizing existing codebases, or integrating with complex APIs, I bring a detail-oriented mindset and a problem-solving attitude to every project.
-            </p>
+              I thrive on clean, maintainable code, modern design principles, and continuous self-improvement. Whether working independently or as part of a team, I’m committed to delivering high-quality results, optimizing performance, and ensuring a seamless user experience across all devices.            </p>
           </div>
         </div>
       </section>
@@ -46,8 +44,7 @@ const AboutMe = () => {
             <div>
               <h3>Web Development</h3>
               <p>
-                I create fast, responsive websites using Next.js and React, focused on clean design and smooth user experience across all devices.
-              </p>
+I create fast, responsive websites using React.js and Wordpress focused on clean design and seamless user experiences across all devices.              </p>
             </div>
           </div>
         </SpotlightCard>

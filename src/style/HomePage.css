@@ -34,6 +34,7 @@ body {
   color: var(--text-color);
   transition: background 0.3s, color 0.3s;
   width: 100vw;
+  overflow-x: hidden;
 }
 
 
@@ -124,6 +125,7 @@ p{
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .nav-link {

@@ -10,33 +10,34 @@ export default function Footer() {
         <div className="footer-about">
           <h4 className="footer-name">Achyut Katiyar</h4>
           <div className="footer-bio">
-            Full Stack Developer &amp; Machine Learning Enthusiast based in Boston, specialized in creating modern web applications and blockchain solutions.
+            Full Stack Web Developer &amp; based in Mumbai, Maharashtra, specializing in building modern, responsive websites and dynamic user interfaces.
           </div>
         </div>
         {/* Quick Links */}
         <div className="footer-links">
           <h4 className="footer-heading">Quick Links</h4>
           <ul>
-            <li><a href="#about">About Me</a></li>
+            <li><a href="#about-me">About Me</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume <sup>↗</sup></a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="/files/myResume.pdf" target="_blank" rel="noopener noreferrer">Resume<sup>↗</sup></a></li>
+
           </ul>
         </div>
         {/* Connect */}
         <div className="footer-connect">
           <h4 className="footer-heading">Connect</h4>
           <div className="footer-icons-row">
-            <a href="https://github.com/achyutk21" target="_blank" rel="noopener noreferrer" title="GitHub" className="footer-social-icon">
+            <a href="https://github.com/Ajay-Yadav-123" target="_blank" rel="noopener noreferrer" title="GitHub" className="footer-social-icon">
               <FaGithub />
             </a>
-            <a href="https://linkedin.com/in/achyutkatiyar2103" target="_blank" rel="noopener noreferrer" title="LinkedIn" className="footer-social-icon">
+            <a href="https://www.linkedin.com/in/ajay-yadav-b7902a24b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" title="LinkedIn" className="footer-social-icon">
               <FaLinkedin />
             </a>
-            <a href="mailto:achyutkatiyar21@gmail.com" title="Email" className="footer-social-icon">
+            <a href="ajmeansajay879@gmail.com" title="Email" className="footer-social-icon">
               <FaEnvelope />
             </a>
-            <a href="tel:+18575766733" title="Phone" className="footer-social-icon">
+            <a href="tel:+917378927857" title="Phone" className="footer-social-icon">
               <FaPhone />
             </a>
           </div>

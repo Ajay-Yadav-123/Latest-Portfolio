@@ -17,36 +17,42 @@ export default function ProjectsGrid() {
       coverText: "Wordpress",
       contentText: "AR Enterprises ia a demolition and dismantling industry",
       imageSrc: image1,
+      link: "https://arent.co.in",
     },
     {
       title: "SCR Technology",
       coverText: "Wordpress",
       contentText: "SCR Technical Services Nig. Ltd. is a premier provider of technical consultancy and industrial solutions in Kano, Nigeria.",
       imageSrc: image2,
+      link: "https://scrtsnigltd.com",
     },
     {
       title: "Old Portfolio",
       coverText: "HTML, CSS, JavaScript",
       contentText: "Personal Portfolio Site showcases some of the projects from 2020 - 2022",
       imageSrc: image3,
+      link: "https://ajayyadavog.netlify.app/",
     },
     {
       title: "Latest Portfolio",
       coverText: "ReactJS, Nodejs, Express, Framer, React Bits, MUI, Emotion",
       contentText: "Personal Portfolio Site showcases some of the projects I've built so far.",
       imageSrc: image4,
+      link: "https://ajayyadavportfolio.vercel.app/",
     },
     {
-      title: "Dummy Project",
+      title: "Quora",
       coverText: "HTML, CSS, JavaScript",
       contentText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus nisl odio",
       imageSrc: image5,
+      link: "https://ajayquora.netlify.app/",
     },
     {
       title: "Dummy Project",
       coverText: "HTML, CSS, JavaScript",
       contentText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus nisl odio",
       imageSrc: image6,
+      link: "https://professionalajay2.netlify.app/",
     },
   ];
 
@@ -62,13 +68,20 @@ export default function ProjectsGrid() {
       }}
     >
       {projects.map((proj, i) => (
-        <CardLayers3d
+        <a
           key={i}
-          title={proj.title}
-          coverText={proj.coverText}
-          contentText={proj.contentText}
-          imageSrc={proj.imageSrc}
-        />
+          href={proj.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
+          <CardLayers3d
+            title={proj.title}
+            coverText={proj.coverText}
+            contentText={proj.contentText}
+            imageSrc={proj.imageSrc}
+          />
+        </a>
       ))}
     </Box>
   );

@@ -129,12 +129,11 @@ kbd {
 
 .deep-footer{
     width: 100%;
-    max-width: 1400px;
+    max-width: 1340px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     margin: auto;
-    padding: 0 30px;
 }
 
 .footer-heart {

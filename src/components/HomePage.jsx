@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import '../style/HomePage.css';
 import profileImage from '../assets/profile.png';
 import {
-  FaSun, FaMoon, FaFileAlt,
-  FaLinkedin, FaGithub, FaTwitter, FaFacebook, FaWhatsapp,
+  FaSun, FaMoon,
+  FaLinkedin, FaGithub, FaWhatsapp,
   FaBars, FaTimes
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { motion } from "framer-motion";
 import TrueFocus from '../ReactBits/TrueFocus';
+import { SiX } from 'react-icons/si';
+import ResumeButton from './ResumeButton';
 
 const HomePage = () => {
   // Hamburger state
@@ -47,7 +49,7 @@ const HomePage = () => {
 
         className="navbar">
         <div className="nav-container">
-            <img src={profileImage} alt="Profile" className="nav-logo" />
+          <img src={profileImage} alt="Profile" className="nav-logo" id='home' />
           {/* Hamburger Button */}
           <button
             className="hamburger-btn"
@@ -105,9 +107,7 @@ const HomePage = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
 
               className="description">
-              Based in Africa, Zambia. I build interactive software applications & websites that run
-              <br />
-              across platforms & devices.
+              Based in Mumbai, Maharashtra, India. I build interactive and responsive websites that work seamlessly across all platforms and devices.
             </motion.p>
           </div>
           <motion.div
@@ -118,19 +118,16 @@ const HomePage = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
 
             className="social-icons">
-            <a href="https://www.linkedin.com/in/yourusername" className="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/ajay-yadav-b7902a24b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
               <FaLinkedin size={22} />
             </a>
-            <a href="https://github.com/yourusername" className="social-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Ajay-Yadav-123" className="social-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
               <FaGithub size={22} />
             </a>
-            <a href="https://twitter.com/yourusername" className="social-icon" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
-              <FaTwitter size={22} />
+            <a href="https://x.com/Ajay38251016?t=glv-F_a29dhsTmkV5m6ixA&s=09" className="social-icon" aria-label="X" target="_blank" rel="noopener noreferrer">
+              <SiX size={22} />
             </a>
-            <a href="https://facebook.com/yourusername" className="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-              <FaFacebook size={22} />
-            </a>
-            <a href="https://wa.me/yourwhatsappnumber" className="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/917378927857" className="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
               <FaWhatsapp size={22} />
             </a>
           </motion.div>
@@ -142,14 +139,11 @@ const HomePage = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
 
             className="action-buttons">
-            <button className="btn btn-primary">
+            <a href='https://wa.me/917378927857' className="btn btn-primary">
               <MdEmail size={20} style={{ marginRight: "0.5em" }} />
               Contact Me
-            </button>
-            <button className="btn btn-secondary">
-              <FaFileAlt size={20} style={{ marginRight: "0.5em" }} />
-              Resume
-            </button>
+            </a>
+            <ResumeButton />
           </motion.div>
         </div>
       </main>

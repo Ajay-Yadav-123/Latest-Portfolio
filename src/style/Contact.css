@@ -80,6 +80,8 @@
     font-size: 1rem;
     transition: border 0.18s;
     margin-top: 3px;
+    resize: none;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
 .contact-form input:focus,

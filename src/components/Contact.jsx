@@ -6,28 +6,32 @@ const contactInfo = [
   {
     icon: <FaGithub />,
     label: 'GitHub',
-    value: 'github.com/achyutk21',
+    value: 'github.com/Ajay-Yadav-123',
+    link: 'https://github.com/Ajay-Yadav-123',
   },
   {
     icon: <FaLinkedin />,
     label: 'LinkedIn',
-    value: 'linkedin.com/in/achyutkatiyar2103/',
+    value: 'linkedin.com/in/Ajay-Yadav/',
+    link: 'hhttps://www.linkedin.com/in/ajay-yadav-b7902a24b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
   },
   {
     icon: <FaEnvelope />,
     label: 'Email',
-    value: 'achyutkatiyar21@gmail.com',
+    value: 'ajmeansajay879.com',
+    link: 'ajmeansajay879.com',
   },
   {
     icon: <FaPhone />,
     label: 'Phone',
-    value: '+18575766733',
+    value: '+917378927857',
+    link: 'tel:+917378927857',
   },
 ];
 
 export default function Contact() {
   return (
-    <section className="contact-section" id='contact'>
+    <section className="contact-section" id="contact">
       <div className="about-head">
         <span className="about-intro">Contact</span>
         <h1 className="about-title">Say Hello</h1>
@@ -51,7 +55,12 @@ export default function Contact() {
           </div>
           <div className="form-group">
             <label>Message</label>
-            <textarea rows="4" placeholder="I'd like to discuss a project opportunity..." required />
+            <textarea
+              rows="4"
+              placeholder="I'd like to discuss a project opportunity..."
+              required
+              style={{ resize: 'none' }}
+            />
           </div>
           <button type="submit" className="contact-submit">
             Send Message
@@ -60,22 +69,28 @@ export default function Contact() {
         {/* Info Card */}
         <div className="contact-info-card">
           <h4>Connect with me</h4>
-          <p>You can also reach out to me directly through these channels m, </p>
+          <p>You can also reach out to me directly through these channels,</p>
           <div className="contact-info-list">
             {contactInfo.map((info, i) => (
-              <div className="info-row" key={i}>
+              <a
+                href={info.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={i}
+                className="info-row"
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
                 <span className="info-icon">{info.icon}</span>
                 <div className="info-column">
                   <span className="info-label">{info.label}</span>
                   <span className="info-value">{info.value}</span>
                 </div>
-
-              </div>
+              </a>
             ))}
           </div>
           <div className="contact-location">
             <h4>Current Location</h4>
-            <span>Boston, Massachusetts, USA</span>
+            <span>Mumbai, Maharashtra, IN</span>
           </div>
         </div>
       </div>
