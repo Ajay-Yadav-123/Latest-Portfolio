@@ -34,8 +34,8 @@
   gap: 30px;
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto 40px auto;
-  padding: 36px 48px;
+  margin: 0 auto 0 auto;
+  padding: 36px 48px 40px;
   box-sizing: border-box;
 }
 
@@ -81,11 +81,11 @@
   z-index: 2;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .spotlight-cards-section {
     grid-template-columns: 1fr;
     gap: 18px;
-    padding: 18px 4px 0 4px;
+    padding: 18px 0 0 0;
   }
   .custom-spotlight-card {
     padding: 21px 14px 16px 14px;

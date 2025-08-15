@@ -24,7 +24,8 @@ function Skills() {
           <h1 className="about-title">What I Know</h1>
         </div>
         <div className="hover-div" style={{ height: '500px', position: 'relative', overflow: 'hidden' }}>
-          <h3 className="hover-me">Hover = Skills</h3>
+          <h3 className="hover-me">Hover Me</h3>
+          <h3 className="hover-me-mobile">Tap Around</h3>
           <ImageTrail 
             items={[
               photo1,
