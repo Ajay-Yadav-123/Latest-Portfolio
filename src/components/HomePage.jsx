@@ -38,7 +38,7 @@ const HomePage = () => {
   const handleNavClick = () => setNavOpen(false);
 
   return (
-    <div className="homepage">
+    <div className="homepage" id='home'>
       <motion.header
         initial={{ opacity: 0, y: -22 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ const HomePage = () => {
           {/* Navigation Menu */}
           <nav className={`nav-menu${navOpen ? " open" : ""}`}>
             <a href="#home" className="nav-link" onClick={handleNavClick}>Home</a>
-            <a href="#about" className="nav-link" onClick={handleNavClick}>About</a>
+            <a href="#about-me" className="nav-link" onClick={handleNavClick}>About</a>
             <a href="#skills" className="nav-link" onClick={handleNavClick}>Skills</a>
             <a href="#projects" className="nav-link" onClick={handleNavClick}>Projects</a>
             <a href="#contact" className="nav-link" onClick={handleNavClick}>Contact</a>

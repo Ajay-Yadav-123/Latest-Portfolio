@@ -13,7 +13,7 @@
 .contact-section {
     background: var(--bg-color);
     color: var(--text-color);
-    padding: 48px 0;
+    padding: 110px 0;
 }
 
 .contact-title {
@@ -196,6 +196,10 @@
 
 /* Responsive */
 @media (max-width: 850px) {
+
+    .contact-section{
+        padding: 40px 0;
+    }
     .contact-main-grid {
         grid-template-columns: 1fr;
         gap: 28px;

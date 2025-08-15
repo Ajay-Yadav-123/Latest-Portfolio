@@ -18,7 +18,7 @@ import photo12 from '../assets/figma.jpg';
 function Skills() {
   return (
     <>
-      <section className="skills">
+      <section className="skills" id="skills">
         <div className="about-head">
           <span className="about-intro">Skills</span>
           <h1 className="about-title">What I Know</h1>

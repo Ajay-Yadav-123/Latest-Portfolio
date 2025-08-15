@@ -382,6 +382,7 @@ p{
 
   .navbar {
     z-index: 1202;
+    padding: 0;
   }
 }
 

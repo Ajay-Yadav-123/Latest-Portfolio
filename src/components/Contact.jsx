@@ -27,7 +27,7 @@ const contactInfo = [
 
 export default function Contact() {
   return (
-    <section className="contact-section">
+    <section className="contact-section" id='contact'>
       <div className="about-head">
         <span className="about-intro">Contact</span>
         <h1 className="about-title">Say Hello</h1>

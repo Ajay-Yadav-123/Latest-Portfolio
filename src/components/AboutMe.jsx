@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 const AboutMe = () => {
   return (
     <>
-      <section className="about-section">
+      <section className="about-section" id="about-me">
         <div className="about-head">
           <span className="about-intro">Introduction</span>
           <h1 className="about-title">About me</h1>
