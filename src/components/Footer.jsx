@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="footer-main-grid">
         {/* About */}
         <div className="footer-about">
-          <h4 className="footer-name">Achyut Katiyar</h4>
+          <h4 className="footer-name">Ajay Yadav</h4>
           <div className="footer-bio">
             Full Stack Web Developer &amp; based in Mumbai, Maharashtra, specializing in building modern, responsive websites and dynamic user interfaces.
           </div>
