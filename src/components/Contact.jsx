@@ -1,53 +1,62 @@
-import React, { useRef } from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
+import React, { useRef } from "react";
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
 import { motion, useInView } from "framer-motion";
-import '../style/Contact.css';
+import emailjs from "emailjs-com";
+import "../style/Contact.css";
 
 const contactInfo = [
   {
     icon: <FaGithub />,
-    label: 'GitHub',
-    value: 'github.com/Ajay-Yadav-123',
-    link: 'https://github.com/Ajay-Yadav-123',
+    label: "GitHub",
+    value: "github.com/Ajay-Yadav-123",
+    link: "https://github.com/Ajay-Yadav-123",
   },
   {
     icon: <FaLinkedin />,
-    label: 'LinkedIn',
-    value: 'linkedin.com/in/ajay-yadav-aj/',
-    link: 'https://www.linkedin.com/in/ajay-yadav-aj',
+    label: "LinkedIn",
+    value: "linkedin.com/in/ajay-yadav-aj/",
+    link: "https://www.linkedin.com/in/ajay-yadav-aj",
   },
   {
     icon: <FaEnvelope />,
-    label: 'Email',
-    value: 'ajmeansajay879@gmail.com',
-    link: 'mailto:ajmeansajay879@gmail.com',
+    label: "Email",
+    value: "ajmeansajay879@gmail.com",
+    link: "mailto:ajmeansajay879@gmail.com",
   },
   {
     icon: <FaPhone />,
-    label: 'Phone',
-    value: '+917378927857',
-    link: 'tel:+917378927857',
+    label: "Phone",
+    value: "+917378927857",
+    link: "tel:+917378927857",
   },
 ];
-
-// Variants for the entire section fade & rise
-const sectionVariants = {
-  hidden: { opacity: 0, y: 60 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-};
-// Variants for staggered child fade & slide
-const staggerContainer = {
-  visible: { transition: { staggerChildren: 0.12 } },
-  hidden: {}
-};
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-};
 
 export default function Contact() {
   const sectionRef = useRef(null);
   const sectionInView = useInView(sectionRef, { margin: "-100px", once: false });
+  const formRef = useRef();
+
+  // ✅ Handling form submission
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_bot1yww", // from EmailJS
+        "template_wbwxdb6", // from EmailJS
+        formRef.current,
+        "VG3P7n-OgINnSKAA1" // from EmailJS
+      )
+      .then(
+        (result) => {
+          alert("✅ Message sent successfully!");
+          e.target.reset();
+        },
+        (error) => {
+          alert("❌ Failed to send message. Try again.");
+        }
+      );
+  };
 
   return (
     <motion.section
@@ -56,88 +65,77 @@ export default function Contact() {
       id="contact"
       initial="hidden"
       animate={sectionInView ? "visible" : "hidden"}
-      variants={sectionVariants}
     >
       <div className="about-head">
-        <motion.span 
-          className="about-intro"
-          variants={itemVariants}
-        >
-          Contact
-        </motion.span>
-        <motion.h1
-          className="about-title"
-          variants={itemVariants}
-        >
-          Say Hello
-        </motion.h1>
+        <motion.span className="about-intro">Contact</motion.span>
+        <motion.h1 className="about-title">Say Hello</motion.h1>
       </div>
 
-      <motion.div
-        className="contact-main-grid"
-        variants={staggerContainer}
-        initial="hidden"
-        animate={sectionInView ? "visible" : "hidden"}
-      >
+      <motion.div className="contact-main-grid">
         {/* Contact Form */}
-        <motion.form className="contact-form" variants={itemVariants}>
-          <motion.h4 variants={itemVariants}>Send me a message</motion.h4>
-          <motion.p variants={itemVariants}>Fill out the form below and I'll get back to you as soon as possible.</motion.p>
-          <motion.div className="form-group" variants={itemVariants}>
+        <motion.form
+          ref={formRef}
+          onSubmit={sendEmail}
+          className="contact-form"
+        >
+          <h4>Send me a message</h4>
+          <p>
+            Fill out the form below and I'll get back to you as soon as
+            possible.
+          </p>
+          <div className="form-group">
             <label>Name</label>
-            <input type="text" placeholder="John Doe" required />
-          </motion.div>
-          <motion.div className="form-group" variants={itemVariants}>
+            <input type="text" name="user_name" placeholder="John Doe" required />
+          </div>
+          <div className="form-group">
             <label>Email</label>
-            <input type="email" placeholder="john@example.com" required />
-          </motion.div>
-          <motion.div className="form-group" variants={itemVariants}>
+            <input type="email" name="user_email" placeholder="john@example.com" required />
+          </div>
+          <div className="form-group">
             <label>Subject</label>
-            <input type="text" placeholder="Project Inquiry" required />
-          </motion.div>
-          <motion.div className="form-group" variants={itemVariants}>
+            <input type="text" name="subject" placeholder="Project Inquiry" required />
+          </div>
+          <div className="form-group">
             <label>Message</label>
             <textarea
+              name="message"
               rows="4"
               placeholder="I'd like to discuss a project opportunity..."
               required
-              style={{ resize: 'none' }}
+              style={{ resize: "none" }}
             />
-          </motion.div>
-          <motion.button type="submit" className="contact-submit" variants={itemVariants}>
+          </div>
+          <button type="submit" className="contact-submit">
             Send Message
-          </motion.button>
+          </button>
         </motion.form>
 
         {/* Info Card */}
-        <motion.div className="contact-info-card" variants={itemVariants}>
-          <motion.h4 variants={itemVariants}>Connect with me</motion.h4>
-          <motion.p variants={itemVariants}>You can also reach out to me directly through these channels,</motion.p>
-
-          <motion.div className="contact-info-list" variants={staggerContainer}>
+        <motion.div className="contact-info-card">
+          <h4>Connect with me</h4>
+          <p>You can also reach out to me directly through these channels,</p>
+          <div className="contact-info-list">
             {contactInfo.map((info, i) => (
-              <motion.a
+              <a
                 key={i}
                 href={info.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="info-row"
-                style={{ textDecoration: 'none', color: 'inherit' }}
-                variants={itemVariants}
+                style={{ textDecoration: "none", color: "inherit" }}
               >
                 <span className="info-icon">{info.icon}</span>
                 <div className="info-column">
                   <span className="info-label">{info.label}</span>
                   <span className="info-value">{info.value}</span>
                 </div>
-              </motion.a>
+              </a>
             ))}
-          </motion.div>
-
-          <motion.div className="contact-location" variants={itemVariants}>
+          </div>
+          <div className="contact-location">
             <h4>Current Location</h4>
             <span>Mumbai, Maharashtra, IN</span>
-          </motion.div>
+          </div>
         </motion.div>
       </motion.div>
     </motion.section>
