@@ -30,7 +30,6 @@
 
 .spotlight-cards-section {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);  /* 2 columns */
   gap: 30px;
   width: 100%;
   max-width: 1400px;
@@ -40,6 +39,7 @@
 }
 
 .custom-spotlight-card {
+  height: 100%;
   background: var(--secondary-bg);
   border-radius: 10px;
   padding: 40px;
@@ -70,6 +70,11 @@
   opacity: 0.88;
   line-height: 1.6;
 }
+.spotlight-cards-section > div {
+  display: grid;
+  gap: 1.4rem;
+  grid-template-columns: repeat(2, 1fr);
+}
 
 .custom-spotlight-card:hover,
 .custom-spotlight-card:focus-within {
@@ -90,6 +95,9 @@
   .custom-spotlight-card {
     padding: 21px 14px 16px 14px;
     margin: 0 10px;
+  }
+  .spotlight-cards-section > div {
+    grid-template-columns: 1fr !important;
   }
 
   .css-u2q6mr{

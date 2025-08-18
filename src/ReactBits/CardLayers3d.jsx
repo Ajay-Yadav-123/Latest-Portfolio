@@ -27,6 +27,7 @@ export default function CardLayers3d({ title = "Card Title", coverText = "Cover"
         sx={{
           minHeight: '300px',
           width: '100%',
+          height: "100%",
           backgroundColor: 'var(--secondary-bg)',
           borderColor: 'var(--border)',
         }}

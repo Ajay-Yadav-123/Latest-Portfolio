@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../style/HomePage.css';
 import profileImage from '../assets/profile.png';
 import {
@@ -7,10 +7,15 @@ import {
   FaBars, FaTimes
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import TrueFocus from '../ReactBits/TrueFocus';
 import { SiX } from 'react-icons/si';
 import ResumeButton from './ResumeButton';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 }
+};
 
 const HomePage = () => {
   // Hamburger state
@@ -30,7 +35,6 @@ const HomePage = () => {
     document.body.classList.toggle('light-theme', theme === 'light');
     localStorage.setItem('theme', theme);
 
-    // Prevent scroll when nav open
     if (navOpen) {
       document.body.classList.add('nav-open');
     } else {
@@ -38,7 +42,6 @@ const HomePage = () => {
     }
   }, [theme, navOpen]);
 
-  // Listen for "T" key press globally to toggle theme
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 't' || e.key === 'T') {
@@ -52,15 +55,25 @@ const HomePage = () => {
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
   const handleNavClick = () => setNavOpen(false);
 
+  // Refs and InView hooks for animation controls with reverse on scroll out
+  const profileImgRef = useRef(null);
+  const profileImgInView = useInView(profileImgRef, { margin: '-100px', once: false });
+
+  const greetingRef = useRef(null);
+  const greetingInView = useInView(greetingRef, { margin: '-100px', once: false });
+
+  const descRef = useRef(null);
+  const descInView = useInView(descRef, { margin: '-100px', once: false });
+
+  const socialRef = useRef(null);
+  const socialInView = useInView(socialRef, { margin: '-100px', once: false });
+
+  const buttonRef = useRef(null);
+  const buttonInView = useInView(buttonRef, { margin: '-100px', once: false });
+
   return (
     <div className="homepage" id='home'>
-      <motion.header
-        initial={{ opacity: 0, y: -22 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        // viewport={{ once: true, amount: 0.7 }}
-        transition={{ duration: 0.6 }}
-        className="navbar"
-      >
+      <header className="navbar">
         <div className="nav-container">
           <img src={profileImage} alt="Profile" className="nav-logo" id='home' />
           {/* Hamburger Button */}
@@ -86,27 +99,38 @@ const HomePage = () => {
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       <main className="hero-section">
         <div className="hero-content">
-          <div className="profile-image-container">
+          <motion.div
+            ref={profileImgRef}
+            className="profile-image-container"
+            initial="hidden"
+            animate={profileImgInView ? "visible" : "hidden"}
+            variants={fadeUp}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
             <motion.img
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.8 }}
+              src={profileImage}
+              alt="Profile"
+              className="profile-image"
               initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
+              animate={profileImgInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              src={profileImage} alt="Profile" className="profile-image" />
-          </div>
-          <div className="hero-text">
+            />
+          </motion.div>
+
+          <motion.div className="hero-text">
             <motion.h2
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              ref={greetingRef}
               className="greeting"
+              initial="hidden"
+              animate={greetingInView ? "visible" : "hidden"}
+              variants={fadeUp}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
               Hi! I'm Ajay
             </motion.h2>
@@ -114,22 +138,24 @@ const HomePage = () => {
             <TrueFocus />
 
             <motion.p
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              ref={descRef}
               className="description"
+              initial="hidden"
+              animate={descInView ? "visible" : "hidden"}
+              variants={fadeUp}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
               Based in Mumbai, Maharashtra, India. I build interactive and responsive websites that work seamlessly across all platforms and devices.
             </motion.p>
-          </div>
+          </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            ref={socialRef}
             className="social-icons"
+            initial="hidden"
+            animate={socialInView ? "visible" : "hidden"}
+            variants={fadeUp}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <a href="https://www.linkedin.com/in/ajay-yadav-b7902a24b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
               <FaLinkedin size={22} />
@@ -146,11 +172,12 @@ const HomePage = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            ref={buttonRef}
             className="action-buttons"
+            initial="hidden"
+            animate={buttonInView ? "visible" : "hidden"}
+            variants={fadeUp}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <a href='https://wa.me/917378927857' className="btn btn-primary">
               <MdEmail size={20} style={{ marginRight: "0.5em" }} />

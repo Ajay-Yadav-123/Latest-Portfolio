@@ -22,7 +22,7 @@
 
 .footer-name {
     letter-spacing: .02em;
-    font-size: 1.04rem;
+    font-size: 24px;
     font-weight: 700;
     color: var(--text-color);
     margin-bottom: 20px;

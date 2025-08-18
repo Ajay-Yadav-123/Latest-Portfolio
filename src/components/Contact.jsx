@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
-import '../style/Contact.css'; // Reference the CSS below
+import { motion, useInView } from "framer-motion";
+import '../style/Contact.css';
 
 const contactInfo = [
   {
@@ -29,31 +30,72 @@ const contactInfo = [
   },
 ];
 
+// Variants for the entire section fade & rise
+const sectionVariants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
+// Variants for staggered child fade & slide
+const staggerContainer = {
+  visible: { transition: { staggerChildren: 0.12 } },
+  hidden: {}
+};
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
 export default function Contact() {
+  const sectionRef = useRef(null);
+  const sectionInView = useInView(sectionRef, { margin: "-100px", once: false });
+
   return (
-    <section className="contact-section" id="contact">
+    <motion.section
+      ref={sectionRef}
+      className="contact-section"
+      id="contact"
+      initial="hidden"
+      animate={sectionInView ? "visible" : "hidden"}
+      variants={sectionVariants}
+    >
       <div className="about-head">
-        <span className="about-intro">Contact</span>
-        <h1 className="about-title">Say Hello</h1>
+        <motion.span 
+          className="about-intro"
+          variants={itemVariants}
+        >
+          Contact
+        </motion.span>
+        <motion.h1
+          className="about-title"
+          variants={itemVariants}
+        >
+          Say Hello
+        </motion.h1>
       </div>
-      <div className="contact-main-grid">
+
+      <motion.div
+        className="contact-main-grid"
+        variants={staggerContainer}
+        initial="hidden"
+        animate={sectionInView ? "visible" : "hidden"}
+      >
         {/* Contact Form */}
-        <form className="contact-form">
-          <h4>Send me a message</h4>
-          <p>Fill out the form below and I'll get back to you as soon as possible.</p>
-          <div className="form-group">
+        <motion.form className="contact-form" variants={itemVariants}>
+          <motion.h4 variants={itemVariants}>Send me a message</motion.h4>
+          <motion.p variants={itemVariants}>Fill out the form below and I'll get back to you as soon as possible.</motion.p>
+          <motion.div className="form-group" variants={itemVariants}>
             <label>Name</label>
             <input type="text" placeholder="John Doe" required />
-          </div>
-          <div className="form-group">
+          </motion.div>
+          <motion.div className="form-group" variants={itemVariants}>
             <label>Email</label>
             <input type="email" placeholder="john@example.com" required />
-          </div>
-          <div className="form-group">
+          </motion.div>
+          <motion.div className="form-group" variants={itemVariants}>
             <label>Subject</label>
             <input type="text" placeholder="Project Inquiry" required />
-          </div>
-          <div className="form-group">
+          </motion.div>
+          <motion.div className="form-group" variants={itemVariants}>
             <label>Message</label>
             <textarea
               rows="4"
@@ -61,39 +103,43 @@ export default function Contact() {
               required
               style={{ resize: 'none' }}
             />
-          </div>
-          <button type="submit" className="contact-submit">
+          </motion.div>
+          <motion.button type="submit" className="contact-submit" variants={itemVariants}>
             Send Message
-          </button>
-        </form>
+          </motion.button>
+        </motion.form>
+
         {/* Info Card */}
-        <div className="contact-info-card">
-          <h4>Connect with me</h4>
-          <p>You can also reach out to me directly through these channels,</p>
-          <div className="contact-info-list">
+        <motion.div className="contact-info-card" variants={itemVariants}>
+          <motion.h4 variants={itemVariants}>Connect with me</motion.h4>
+          <motion.p variants={itemVariants}>You can also reach out to me directly through these channels,</motion.p>
+
+          <motion.div className="contact-info-list" variants={staggerContainer}>
             {contactInfo.map((info, i) => (
-              <a
+              <motion.a
+                key={i}
                 href={info.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                key={i}
                 className="info-row"
                 style={{ textDecoration: 'none', color: 'inherit' }}
+                variants={itemVariants}
               >
                 <span className="info-icon">{info.icon}</span>
                 <div className="info-column">
                   <span className="info-label">{info.label}</span>
                   <span className="info-value">{info.value}</span>
                 </div>
-              </a>
+              </motion.a>
             ))}
-          </div>
-          <div className="contact-location">
+          </motion.div>
+
+          <motion.div className="contact-location" variants={itemVariants}>
             <h4>Current Location</h4>
             <span>Mumbai, Maharashtra, IN</span>
-          </div>
-        </div>
-      </div>
-    </section>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 }

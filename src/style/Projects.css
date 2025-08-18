@@ -7,3 +7,26 @@
 .css-12x2cp1-JoyTypography-root{
     color: var(--small-text-color) !important;
 }
+
+
+.css-1gh2klf{
+    height: 100%;
+}
+
+@media (max-width: 900px) {
+    .css-1172r7w{
+    grid-template-columns: repeat(1, 1fr) !important;
+    padding: 40px 10px !important;
+}
+}
+
+
+.css-1gh2klf>div, .css-1gh2klf>div>div{
+    display: flex;
+    justify-content: flex-start;
+    align-items: normal;
+}
+
+/* .css-1wyt1ud-JoyCardCover-root{
+    height: 350px !important;
+} */
